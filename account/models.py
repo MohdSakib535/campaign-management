@@ -2,7 +2,6 @@ from django.db import models
 from django.contrib.auth.models import AbstractUser, Group, Permission
 
 class User(AbstractUser):
-    # Extend the default User model if needed
     phone_number = models.CharField(max_length=15, blank=True, null=True)
     is_vip = models.BooleanField(default=False)
 
