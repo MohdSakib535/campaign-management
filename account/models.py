@@ -10,7 +10,7 @@ class User(AbstractUser):
         Group,
         verbose_name='groups',
         blank=True,
-        related_name='account_user_set',        # <- uniquely named
+        related_name='account_user_set',    
         related_query_name='account_user',
         help_text=(
             'The groups this user belongs to. A user will get all permissions '
@@ -21,7 +21,7 @@ class User(AbstractUser):
         Permission,
         verbose_name='user permissions',
         blank=True,
-        related_name='account_user_permissions', # <- uniquely named
+        related_name='account_user_permissions',
         related_query_name='account_user',
         help_text='Specific permissions for this user.',
     )
