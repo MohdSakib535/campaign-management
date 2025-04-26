@@ -1,0 +1,462 @@
+{
+	"info": {
+		"_postman_id": "c6d815bf-9a0c-4796-b0d1-967719dff6ae",
+		"name": "Discount-Campaigm",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "34786080"
+	},
+	"item": [
+		{
+			"name": "account",
+			"item": [
+				{
+					"name": "register",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"username\": \"jatin\",\n  \"email\": \"user@example.com\",\n  \"password\": \"123\",\n  \"password_confirm\": \"123\",\n  \"first_name\": \"jatin\",\n  \"last_name\": \"Doe\",\n  \"phone_number\": \"1234563490\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8000/v1/auth/register/",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8000",
+							"path": [
+								"v1",
+								"auth",
+								"register",
+								""
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "login",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"username\": \"vikas\",\n  \"password\": \"123\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8000/v1/auth/login/",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8000",
+							"path": [
+								"v1",
+								"auth",
+								"login",
+								""
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "all_user_list",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"auth": {
+							"type": "noauth"
+						},
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Token 1d575c2a0a13b2151e650a34354516786d95a335",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8000/v1/auth/list/",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8000",
+							"path": [
+								"v1",
+								"auth",
+								"list",
+								""
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Profile",
+					"request": {
+						"method": "GET",
+						"header": []
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Discount",
+			"item": [
+				{
+					"name": "create_campaign",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Token 1d575c2a0a13b2151e650a34354516786d95a335",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"name\": \"Summer Sale - 15% Off22222\",\n    \"description\": \"Get 15% off on all orders\",\n    \"discount_type\": \"CART\",\n    \"discount_calculation\": \"PERCENTAGE\",\n    \"discount_value\": 15,\n    \"max_discount_amount\": 30,\n    \"start_date\": \"2023-06-01T00:00:00Z\",\n    \"end_date\": \"2023-06-30T23:59:59Z\",\n    \"total_budget\": 5000,\n    \"max_transactions_per_day\": 2,\n    \"eligible_customer_ids\": [5],\n    \"is_active\": true\n    }",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://127.0.0.1:8000/v1/discounts/campaigns/",
+							"protocol": "http",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "8000",
+							"path": [
+								"v1",
+								"discounts",
+								"campaigns",
+								""
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "create_campaign Copy",
+					"request": {
+						"method": "DELETE",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Token 1d575c2a0a13b2151e650a34354516786d95a335",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"name\": \"Free Shipping Weekend\",\n    \"description\": \"Free delivery on all orders\",\n    \"discount_type\": \"DELIVERY\",\n    \"discount_calculation\": \"FIXED\",\n    \"discount_value\": 5,\n    \"start_date\": \"2023-06-10T00:00:00Z\",\n    \"end_date\": \"2023-06-11T23:59:59Z\",\n    \"total_budget\": 1000,\n    \"max_transactions_per_day\": 1,\n    \"eligible_customer_ids\": [5,6], \n    \"is_active\": true\n    }",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://127.0.0.1:8000/v1/discounts/campaigns/8/",
+							"protocol": "http",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "8000",
+							"path": [
+								"v1",
+								"discounts",
+								"campaigns",
+								"8",
+								""
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "update_campaign_put",
+					"request": {
+						"method": "PUT",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Token 1d575c2a0a13b2151e650a34354516786d95a335",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"name\": \"Summer Sale - 15% Off\",\n    \"description\": \"Get 15% off on all orders\",\n    \"discount_type\": \"CART\",\n    \"discount_calculation\": \"PERCENTAGE\",\n    \"discount_value\": 15,\n    \"max_discount_amount\": 40,\n    \"start_date\": \"2025-04-26T00:00:00Z\",\n    \"end_date\": \"2025-04-26T23:59:59Z\",\n    \"total_budget\": 5000,\n    \"max_transactions_per_day\": 4,\n    \"eligible_customer_ids\": [5],\n    \"is_active\": true\n    }",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://127.0.0.1:8000/v1/discounts/campaigns/7/",
+							"protocol": "http",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "8000",
+							"path": [
+								"v1",
+								"discounts",
+								"campaigns",
+								"7",
+								""
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "update_campaign_put Copy",
+					"request": {
+						"method": "PATCH",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Token 1d575c2a0a13b2151e650a34354516786d95a335",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"is_active\": \"true\",\n  \"end_date\":   \"2025-05-30T23:59:59Z\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://127.0.0.1:8000/v1/discounts/campaigns/7/",
+							"protocol": "http",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "8000",
+							"path": [
+								"v1",
+								"discounts",
+								"campaigns",
+								"7",
+								""
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "discount_usage",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Token 1d575c2a0a13b2151e650a34354516786d95a335",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://127.0.0.1:8000/v1/discounts/discount-usage/",
+							"protocol": "http",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "8000",
+							"path": [
+								"v1",
+								"discounts",
+								"discount-usage",
+								""
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "get_campaign",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Token 1d575c2a0a13b2151e650a34354516786d95a335",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://127.0.0.1:8000/v1/discounts/campaigns/",
+							"protocol": "http",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "8000",
+							"path": [
+								"v1",
+								"discounts",
+								"campaigns",
+								""
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "apply_discount",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Token 1d575c2a0a13b2151e650a34354516786d95a335",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"user_id\": 5,\n  \"campaign_id\": 7,\n  \"cart_total\": 179.00,\n  \"delivery_fee\": 200,\n  \"transaction_id\": \"TX12345678987335\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://127.0.0.1:8000/v1/discounts/apply-discount/",
+							"protocol": "http",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "8000",
+							"path": [
+								"v1",
+								"discounts",
+								"apply-discount",
+								""
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "available_campaigns",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Token 1d575c2a0a13b2151e650a34354516786d95a335",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"user_id\": 5,\n  \"cart_total\": 179.00,\n  \"delivery_fee\": 200\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://127.0.0.1:8000/v1/discounts/available-campaigns/",
+							"protocol": "http",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "8000",
+							"path": [
+								"v1",
+								"discounts",
+								"available-campaigns",
+								""
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		}
+	]
+}
