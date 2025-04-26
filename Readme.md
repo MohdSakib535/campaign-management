@@ -193,4 +193,4 @@ The service uses token-based authentication:
 
 ## Contributors
 
-- Your Name - Mohd Sakib
+-  Mohd Sakib
